@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './Navbar';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Create from './Create';
+import EntryDetails from './EntryDetails';
+import NotFound from './NotFound';
+import HistoryPage from './HistoryPage';
+import ProfilePage from './ProfilePage';
+import ProgressPage from './ProgressPage';
 
 function App() {
+// npm start
+ // npx json-server --watch data/db.json --port 8000
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        
+        <div className="content">
+        <Switch>
+          <Route exact path = "/">
+            <Home />
+          </Route>
+          <Route path = "/create">
+            <Create/>
+          </Route>
+          <Route path = "/entries/:id">
+            <EntryDetails/>
+          </Route>
+          <Route path = "/history">
+            <HistoryPage/>
+          </Route>
+          <Route path = "/profile">
+            <ProfilePage/>
+          </Route>
+          <Route path = "/progress">
+            <ProgressPage/>
+          </Route>
+          <Route path = "*">
+            <NotFound />
+          </Route>
+        </Switch>
+
+        </div>
+      </div>
+    </Router>
   );
 }
 

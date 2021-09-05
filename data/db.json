@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "title": "Eggs and Toast",
+      "body": "Two eggs, 1 piece of toast",
+      "mealType": "Lunch",
+      "id": 5
+    },
+    {
+      "title": "Pesto Pasta",
+      "body": "2 cups of pasta, 2 tsp olive oil, 1 tbsp pesto",
+      "mealType": "Lunch",
+      "id": 6
+    },
+    {
+      "title": "Ceral",
+      "body": "1 bowl of honey bunches",
+      "mealType": "Breakfast",
+      "id": 7
+    }
+  ]
+}
