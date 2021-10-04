@@ -1,11 +1,55 @@
-
+import { useState, useEffect } from "react";
+import ProgressBar from "./ProgressBar";
 
 const Home = () => {
-   
+
+    const [ globalPercent, setGlobalPercent ] = useState();
+
+
+    useEffect(() => {
+        const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
+
+        console.log('Use effect ran');
+        fetch('http://localhost:8000/totals', { signal: abortConst.signal })
+            .then(res => {
+                if(!res.ok) {
+                    throw Error('could not fetch the data for that resourse');
+                }
+
+
+            return res.json()
+            })
+            .then((data) => {
+                setGlobalPercent(data.globalPercent);
+                //setisPending(false);
+                //setError(null);
+            })
+            .catch(err => {
+                if (err.name === 'AbortError') {
+                    console.log('Fetch aborted')
+                } else {
+                    //setisPending(false);
+                    //setError(err.message);
+                }
+                
+            })
+            return () => abortConst.abort();
+
+    }, []); 
+
+    const testData = [
+        { bgcolor: "#6a1b9a", completed: globalPercent },
+      ];
+
+      
 
     return ( 
         <div>  
             <h2> Home Page </h2>
+            {testData.map((item, idx) => (
+            <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+          ))}
+          
         </div>
      );
 }

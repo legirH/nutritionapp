@@ -1,33 +1,113 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router";
+import useFetch from "./useFetch";
 
-const ProfilePage = () => {
 
-         // Nutritionix request
-        const nutritionix = require("nutritionix-api");
+const ProfilePage = () => {  
 
-       
-        const APP_ID   = '4f8d3652'; // Your APP ID
-        const API_KEY  = '65fc845830a41cc8dd76825821b4ac38'; // Your KEY
-        const SearchPhrase = '1 cup flour';
-        
-        nutritionix.init(APP_ID,API_KEY);
-        
-        nutritionix.natural.search(SearchPhrase).then(result => {
-            console.log(result);
-        });
 
-    // Profile Page
+
         const [name, setName] = useState('');
         const [calories, setCalories] = useState('0');
         const [protein, setProtein] = useState('0');
         const [carbohydrates, setCarbohydrates] = useState('0');
         const [fats, setFats] = useState('0');
         const [calcium, setCalcium] = useState('0');
+        const [isPending, setisPending] = useState(false);
+        const history = useHistory();
+
+        //const { data: profile, isPending: pending , error } = useFetch('http://localhost:8000/profile')
+
+        useEffect(() => {
+            const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
+    
+            console.log('Use effect ran');
+            fetch('http://localhost:8000/profile', { signal: abortConst.signal })
+                .then(res => {
+                    if(!res.ok) {
+                        throw Error('could not fetch the data for that resourse');
+                    }
+    
+    
+                return res.json()
+                })
+                .then((data) => {
+                    setName(data.name);
+                    setCalories(data.calories);
+                    setProtein(data.protein);
+                    setCarbohydrates(data.carbohydrates);
+                    setFats(data.fats);
+                    setCalcium(data.calcium);
+                    //setisPending(false);
+                    //setError(null);
+                })
+                .catch(err => {
+                    if (err.name === 'AbortError') {
+                        console.log('Fetch aborted')
+                    } else {
+                        //setisPending(false);
+                        //setError(err.message);
+                    }
+                    
+                })
+                return () => abortConst.abort();
+    
+        }, []); // if nothing in the array [] then it will only run once, if you put eg name it will run only when name is changed, if no [] then will run evertime something is changed
+    
+
+
+/*         useFetch = () => {
+            const profile ={ name, calories, protein, carbohydrates, fats, calcium};
+            fetch('http://localhost:8000/profile',{
+                method: 'GET',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.parse(profile.name)
+            }).then(() => {
+                setName(profile.name);
+            })
+        } */
+
+
+
+        const handelSubmit = (e) =>{
+            e.preventDefault();
+            const profile ={ name, calories, protein, carbohydrates, fats, calcium};
+            //const totals = { globalPercent }
+
+            //var globalPercent = 9;
+
+            setisPending(true);
+
+    
+            fetch('http://localhost:8000/profile', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(profile)
+            }).then(() => {
+                console.log('Profile updated');
+                setisPending(false);
+                history.push('/progress');
+    
+            })
+
+            // fetch('http://localhost:8000/totals', {
+            //     method: 'POST',
+            //     headers: { "Content-Type": "application/json" },
+            //     body: JSON.stringify(totals)
+            // }).then(() => {
+            //     console.log('Totals updated');
+            //     setisPending(false);
+            //     history.push('/progress');
+    
+            // })
+    
+        }
 
         return (  
             <div className="profile">
+
             <h2> { name } </h2>
-            <form> 
+            <form onSubmit = {handelSubmit}> 
                 <label>Name:</label>
                 <input 
                     type ="text"
@@ -71,20 +151,12 @@ const ProfilePage = () => {
                     onChange = {(e) => setCalcium(e.target.value)}
                 />
             
-            {/*
+           
                 {!isPending && <button>Submit</button>}
                 {isPending && <button disabled>Loading...</button>}
 
-            */}
-
-
             </form>
-            
-            <p> { calories }</p>
-            <p> { protein }</p>
-            <p> { carbohydrates }</p>
-            <p> { fats }</p>
-            <p> { calcium }</p>
+
         </div>
             
         );

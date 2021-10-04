@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 
 const EntryList = ({entries, title}) => { // can do (props and then declare each one or only the ones you need)
 
-
-
-   
     return ( 
         <div className="entry-list">
             <h2> { title } </h2>

@@ -14,15 +14,19 @@ const EntryDetails = () => {
         })
     }
 
+
+
     return (
         <div className="entry-details">
             { isPending && <div>Loading...</div>}
             { error && <div>{ error }</div>}
             { entry && (
                 <article>
-                    <h2>{ entry.title }</h2>
+                    
+                    <h2>{ entry.title } { entry.date } </h2>
                     <p>{ entry.mealType }</p>
                     <div>{ entry.body }</div>
+                    
                     <button onClick = {handelClick}>delete</button>
                 </article>
             )}

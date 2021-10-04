@@ -2,15 +2,22 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 
 const Create = () => {
+
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [mealType, setMealType] = useState('Breakfast');
+    //const [date, setDate] = useState('');
     const [isPending, setisPending] = useState(false);
     const history = useHistory();
 
     const handelSubmit = (e) =>{
         e.preventDefault();
-        const entry ={ title, body, mealType};
+        const date = new Date()
+        const sortDate = new Date().getTime();
+
+        const favorite = new Boolean(false);
+
+        const entry ={ title, body, mealType, date, sortDate, favorite };
 
         setisPending(true);
 
@@ -56,6 +63,7 @@ const Create = () => {
                     <option value="Snack">Snack</option>
 
                 </select>
+
                 {!isPending && <button>Add Entry</button>}
                 {isPending && <button disabled>Adding entry...</button>}
 

@@ -1,22 +1,40 @@
 {
   "entries": [
     {
-      "title": "Eggs and Toast",
-      "body": "Two eggs, 1 piece of toast",
-      "mealType": "Lunch",
-      "id": 5
+      "title": "Protein shake",
+      "body": "1 cup milk, 1 tbsp peanut butter, 1 banana, 1/4 cup protein powder ",
+      "mealType": "Snack",
+      "date": "2021-09-24T03:14:15.616Z",
+      "sortDate": 1632453255616,
+      "id": 1
     },
     {
-      "title": "Pesto Pasta",
-      "body": "2 cups of pasta, 2 tsp olive oil, 1 tbsp pesto",
+      "title": "pasta",
+      "body": "1 cup pasta, 1 cup tomato sauce, 1 chicken breast",
       "mealType": "Lunch",
-      "id": 6
+      "date": "2021-09-24T03:17:05.139Z",
+      "sortDate": 1632453425139,
+      "id": 2
     },
     {
-      "title": "Ceral",
-      "body": "1 bowl of honey bunches",
-      "mealType": "Breakfast",
-      "id": 7
+      "title": "Pasta ",
+      "body": "1 cup pasta, 2 tbsp green pesto",
+      "mealType": "Lunch",
+      "date": "2021-09-30T00:23:00.992Z",
+      "sortDate": 1632961380992,
+      "favorite": false,
+      "id": 3
     }
-  ]
+  ],
+  "profile": {
+    "name": "Preeti Happer",
+    "calories": "1000",
+    "protein": "1000",
+    "carbohydrates": "500",
+    "fats": "1000",
+    "calcium": "1000"
+  },
+  "totals": {
+    "globalPercent": "18"
+  }
 }
