@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const EntryList = ({entries, title}) => { // can do (props and then declare each one or only the ones you need)
+const EntryListFilter = ({entries, title}) => { // can do (props and then declare each one or only the ones you need)
 
     return ( 
-        <div className="entry-list">
+        <div className="entry-listfilter">
             <h2> { title } </h2>
-              {entries.map((entry) => (
+              {entries.filter(entry => entry.favorite).map((entry) => (
                 <div className="entry-preview" key = {entry.id}>
                     <Link to = {`/entries/${entry.id}`}>
                         <h2>{ entry.title }</h2>
@@ -18,6 +18,4 @@ const EntryList = ({entries, title}) => { // can do (props and then declare each
     );
 }
  
-export default EntryList;
-
-// <button onClick={() => handleDelete(blog.id)}>delete blog</button>
+export default EntryListFilter;

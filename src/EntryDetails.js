@@ -13,8 +13,12 @@ const EntryDetails = () => {
             history.push('/');
         })
     }
-
-
+    const handelClickFavorite= () => {
+        fetch('http://localhost:8000/entries/' + entry.id, {
+            //set favorite in entry to true put or patch
+            
+        })
+    }
 
     return (
         <div className="entry-details">
@@ -23,11 +27,12 @@ const EntryDetails = () => {
             { entry && (
                 <article>
                     
-                    <h2>{ entry.title } { entry.date } </h2>
+                    <h2>{ entry.title } { entry.date.substring(0, 10) } </h2>
                     <p>{ entry.mealType }</p>
                     <div>{ entry.body }</div>
                     
                     <button onClick = {handelClick}>delete</button>
+                    <button onClick = {handelClickFavorite}>Favorite</button>
                 </article>
             )}
         </div>

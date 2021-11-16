@@ -72,10 +72,9 @@ const ProfilePage = () => {
         const handelSubmit = (e) =>{
             e.preventDefault();
             const profile ={ name, calories, protein, carbohydrates, fats, calcium};
-            //const totals = { globalPercent }
+            const totals = { globalPercent, caloriePercent, proteinPercent, carbohydratePercent, fatsPercent, calciumPercent }
 
-            //var globalPercent = 9;
-
+    
             setisPending(true);
 
     
@@ -90,18 +89,41 @@ const ProfilePage = () => {
     
             })
 
-            // fetch('http://localhost:8000/totals', {
-            //     method: 'POST',
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify(totals)
-            // }).then(() => {
-            //     console.log('Totals updated');
-            //     setisPending(false);
-            //     history.push('/progress');
+            fetch('http://localhost:8000/totals', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(totals)
+            }).then(() => {
+                console.log('Totals updated');
+                setisPending(false);
+                history.push('/progress');
     
-            // })
+            })
     
         }
+
+      var currentCalories = 400;
+      var goalCalories = calories;
+      var caloriePercent = (currentCalories / goalCalories) * 100;
+
+      var currentProtein = 60;
+      var goalProtein = protein;
+      var proteinPercent = (currentProtein / goalProtein ) * 100;
+
+      var currentCarbohydrates = 250;
+      var goalCarbohydrates = carbohydrates;
+      var carbohydratePercent = (currentCarbohydrates / goalCarbohydrates ) * 100;
+
+      var currentFats = 24;
+      var goalFats = fats;
+      var fatsPercent = (currentFats / goalFats ) * 100;
+
+      var currentCalcium = 16;
+      var goalCalcium = calcium;
+      var calciumPercent = ( currentCalcium / goalCalcium ) * 100;
+
+      var globalPercent = (caloriePercent + proteinPercent + carbohydratePercent + fatsPercent + calciumPercent) / 5 ;
+
 
         return (  
             <div className="profile">

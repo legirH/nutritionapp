@@ -12,7 +12,8 @@ const Create = () => {
 
     const handelSubmit = (e) =>{
         e.preventDefault();
-        const date = new Date()
+        const dateOne = new Date()
+        let date = dateOne.toString();
         const sortDate = new Date().getTime();
 
         const favorite = new Boolean(false);

@@ -68,11 +68,11 @@ function ProgressPage() {
       }, []); 
 
 
-      var currentCalories = 50;
+      var currentCalories = 400;
       var goalCalories = calories;
       var caloriePercent = (currentCalories / goalCalories) * 100;
 
-      var currentProtein = 50;
+      var currentProtein = 60;
       var goalProtein = protein;
       var proteinPercent = (currentProtein / goalProtein ) * 100;
 
@@ -80,11 +80,11 @@ function ProgressPage() {
       var goalCarbohydrates = carbohydrates;
       var carbohydratePercent = (currentCarbohydrates / goalCarbohydrates ) * 100;
 
-      var currentFats = 50;
+      var currentFats = 24;
       var goalFats = fats;
       var fatsPercent = (currentFats / goalFats ) * 100;
 
-      var currentCalcium = 50;
+      var currentCalcium = 16;
       var goalCalcium = calcium;
       var calciumPercent = ( currentCalcium / goalCalcium ) * 100;
 

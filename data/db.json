@@ -1,40 +1,56 @@
 {
   "entries": [
     {
-      "title": "Protein shake",
-      "body": "1 cup milk, 1 tbsp peanut butter, 1 banana, 1/4 cup protein powder ",
+      "title": "Protein Shake",
+      "body": "1 banana, 1 cup of milk, 1 cup of whey protein powder, 1 tbsp of peanut butter. ",
       "mealType": "Snack",
-      "date": "2021-09-24T03:14:15.616Z",
-      "sortDate": 1632453255616,
-      "id": 1
-    },
-    {
-      "title": "pasta",
-      "body": "1 cup pasta, 1 cup tomato sauce, 1 chicken breast",
-      "mealType": "Lunch",
-      "date": "2021-09-24T03:17:05.139Z",
-      "sortDate": 1632453425139,
-      "id": 2
-    },
-    {
-      "title": "Pasta ",
-      "body": "1 cup pasta, 2 tbsp green pesto",
-      "mealType": "Lunch",
-      "date": "2021-09-30T00:23:00.992Z",
-      "sortDate": 1632961380992,
+      "date": "Wed Nov 03 2021 11:15:38 GMT+0800 (Central Indonesia Time)",
+      "sortDate": 1635909338420,
       "favorite": false,
       "id": 3
+    },
+    {
+      "title": "Sandwitch",
+      "body": "2 slices of whole wheat bread, 4 slices of salami, 2 slices of cheese, 3 leaves of lettuces, 1 tbsp of hummus",
+      "mealType": "Lunch",
+      "date": "Wed Nov 03 2021 11:16:44 GMT+0800 (Central Indonesia Time)",
+      "sortDate": 1635909404068,
+      "favorite": false,
+      "id": 4
+    },
+    {
+      "title": "Pancakes",
+      "body": "2 cups of flour, 2 eggs, 2 cups of milk, 1 tsp of baking powder",
+      "mealType": "Breakfast",
+      "date": "Wed Nov 03 2021 11:18:06 GMT+0800 (Central Indonesia Time)",
+      "sortDate": 1635909486131,
+      "favorite": true,
+      "id": 5
+    },
+    {
+      "title": "sdfs",
+      "body": "sdfsdf",
+      "mealType": "Dinner",
+      "date": "Tue Nov 16 2021 16:15:02 GMT+0800 (Central Indonesia Time)",
+      "sortDate": 1637050502330,
+      "favorite": false,
+      "id": 6
     }
   ],
   "profile": {
     "name": "Preeti Happer",
     "calories": "1000",
-    "protein": "1000",
+    "protein": "150",
     "carbohydrates": "500",
-    "fats": "1000",
-    "calcium": "1000"
+    "fats": "70",
+    "calcium": "100"
   },
   "totals": {
-    "globalPercent": "18"
+    "globalPercent": 36.05714285714286,
+    "caloriePercent": 40,
+    "proteinPercent": 40,
+    "carbohydratePercent": 50,
+    "fatsPercent": 34.285714285714285,
+    "calciumPercent": 16
   }
 }

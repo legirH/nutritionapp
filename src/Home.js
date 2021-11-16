@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import ProgressBar from "./ProgressBar";
+import EntryListFilter from "./EntryListFilter";
+import EntryListFilterDate from "./EntryListFilterDate";
+import useFetch from './useFetch';
 
 const Home = () => {
+
+    const { data: entries, isPending, error } = useFetch('http://localhost:8000/entries');
+
 
     const [ globalPercent, setGlobalPercent ] = useState();
 
@@ -49,7 +55,12 @@ const Home = () => {
             {testData.map((item, idx) => (
             <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
           ))}
-          
+
+            { error && <div> { error } </div>}
+            {isPending && <div> Loading... </div>}
+            {entries && <EntryListFilter entries={entries} title="Favorite Entries"  /> }  
+            {entries && <EntryListFilterDate entries={entries} title="Today's Entries"  /> }  
+
         </div>
      );
 }
