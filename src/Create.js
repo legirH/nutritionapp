@@ -35,6 +35,8 @@ const Create = () => {
 
     }
 
+     
+
     return ( 
         <div className="create">
             <h2>Add a New Entry</h2>
