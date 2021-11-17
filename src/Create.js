@@ -6,7 +6,6 @@ const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [mealType, setMealType] = useState('Breakfast');
-    //const [date, setDate] = useState('');
     const [isPending, setisPending] = useState(false);
     const history = useHistory();
 
@@ -14,11 +13,10 @@ const Create = () => {
         e.preventDefault();
         const dateOne = new Date()
         let date = dateOne.toString();
-        const sortDate = new Date().getTime();
 
         const favorite = new Boolean(false);
 
-        const entry ={ title, body, mealType, date, sortDate, favorite };
+        const entry ={ title, body, mealType, date, favorite };
 
         setisPending(true);
 

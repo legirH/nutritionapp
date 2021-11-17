@@ -44,16 +44,15 @@ const Home = () => {
     }, []); 
 
     const testData = [
-        { bgcolor: "#6a1b9a", completed: globalPercent },
+        { bgcolor: "#6a1b9a", completed: globalPercent, name: "Total" },
       ];
 
       
 
     return ( 
         <div>  
-            <h2> Home Page </h2>
             {testData.map((item, idx) => (
-            <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+            <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} name={item.name} />
           ))}
 
             { error && <div> { error } </div>}

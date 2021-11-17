@@ -15,7 +15,7 @@
       "mealType": "Lunch",
       "date": "Wed Nov 03 2021 11:16:44 GMT+0800 (Central Indonesia Time)",
       "sortDate": 1635909404068,
-      "favorite": false,
+      "favorite": true,
       "id": 4
     },
     {
@@ -24,33 +24,32 @@
       "mealType": "Breakfast",
       "date": "Wed Nov 03 2021 11:18:06 GMT+0800 (Central Indonesia Time)",
       "sortDate": 1635909486131,
-      "favorite": false,
+      "favorite": true,
       "id": 5
     },
     {
-      "title": "sidjflkasjdf ",
-      "body": "sdfa sdf as",
-      "mealType": "Snack",
-      "date": "Wed Nov 17 2021 10:33:34 GMT+0800 (Central Indonesia Time)",
-      "sortDate": 1637116414583,
+      "title": "Salad",
+      "body": "2 leaves of lettuce, 1 tomato, 1/4 of red onion,  1 tsp sunflower seeds.",
+      "mealType": "Lunch",
+      "date": "Wed Nov 17 2021 10:50:48 GMT+0800 (Central Indonesia Time)",
       "favorite": false,
       "id": 6
     }
   ],
   "profile": {
     "name": "Preeti Happer",
-    "calories": "1000",
-    "protein": "150",
-    "carbohydrates": "500",
-    "fats": "70",
-    "calcium": "100"
+    "calories": "2000",
+    "protein": "100",
+    "carbohydrates": "225",
+    "fats": "40",
+    "calcium": "2500"
   },
   "totals": {
-    "globalPercent": 36.05714285714286,
-    "caloriePercent": 40,
-    "proteinPercent": 40,
-    "carbohydratePercent": 50,
-    "fatsPercent": 34.285714285714285,
-    "calciumPercent": 16
+    "globalPercent": 49,
+    "caloriePercent": 20,
+    "proteinPercent": 60,
+    "carbohydratePercent": 67,
+    "fatsPercent": 60,
+    "calciumPercent": 40
   }
 }

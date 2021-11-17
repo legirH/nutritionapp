@@ -70,39 +70,39 @@ function ProgressPage() {
 
       var currentCalories = 400;
       var goalCalories = calories;
-      var caloriePercent = (currentCalories / goalCalories) * 100;
+      var caloriePercent = Math.round((currentCalories / goalCalories) * 100);
 
       var currentProtein = 60;
       var goalProtein = protein;
-      var proteinPercent = (currentProtein / goalProtein ) * 100;
+      var proteinPercent = Math.round((currentProtein / goalProtein ) * 100);
 
-      var currentCarbohydrates = 250;
+      var currentCarbohydrates = 150;
       var goalCarbohydrates = carbohydrates;
-      var carbohydratePercent = (currentCarbohydrates / goalCarbohydrates ) * 100;
+      var carbohydratePercent = Math.round((currentCarbohydrates / goalCarbohydrates ) * 100);
 
       var currentFats = 24;
       var goalFats = fats;
-      var fatsPercent = (currentFats / goalFats ) * 100;
+      var fatsPercent = Math.round((currentFats / goalFats ) * 100);
 
-      var currentCalcium = 16;
+      var currentCalcium = 1000;
       var goalCalcium = calcium;
-      var calciumPercent = ( currentCalcium / goalCalcium ) * 100;
+      var calciumPercent = Math.round(( currentCalcium / goalCalcium ) * 100);
 
-      var globalPercent = (caloriePercent + proteinPercent + carbohydratePercent + fatsPercent + calciumPercent) / 5 ;
+      var globalPercent = Math.round((caloriePercent + proteinPercent + carbohydratePercent + fatsPercent + calciumPercent) / 5) ;
 
       const testData = [
-        { bgcolor: "#6a1b9a", completed: globalPercent },
-        { bgcolor: "#6a1b9a", completed: caloriePercent },
-        { bgcolor: "#00695c", completed: proteinPercent },
-        { bgcolor: "#ef6c00", completed: carbohydratePercent },
-        { bgcolor: "#ef6c00", completed: fatsPercent },
-        { bgcolor: "#ef6c00", completed: calciumPercent },
+        { bgcolor: "#6a1b9a", completed: globalPercent, name: "Total" },
+        { bgcolor: "#ef6c00", completed: caloriePercent, name: "Calories" },
+        { bgcolor: "#00695c", completed: proteinPercent, name: "Protein" },
+        { bgcolor: "#24ef00", completed: carbohydratePercent, name: "Carbohydrates" },
+        { bgcolor: "#ef007f", completed: fatsPercent, name: "Fats" },
+        { bgcolor: "#739e2e", completed: calciumPercent, name: "Calcium" },
       ];
 
       return (
         <div className="ProgressPage">
           {testData.map((item, idx) => (
-            <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+            <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} name={item.name} />
           ))}
         </div>
       );
