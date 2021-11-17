@@ -15,7 +15,7 @@
       "mealType": "Lunch",
       "date": "Wed Nov 03 2021 11:16:44 GMT+0800 (Central Indonesia Time)",
       "sortDate": 1635909404068,
-      "favorite": true,
+      "favorite": false,
       "id": 4
     },
     {
@@ -24,7 +24,7 @@
       "mealType": "Breakfast",
       "date": "Wed Nov 03 2021 11:18:06 GMT+0800 (Central Indonesia Time)",
       "sortDate": 1635909486131,
-      "favorite": true,
+      "favorite": false,
       "id": 5
     },
     {
@@ -32,8 +32,24 @@
       "body": "2 leaves of lettuce, 1 tomato, 1/4 of red onion,  1 tsp sunflower seeds.",
       "mealType": "Lunch",
       "date": "Wed Nov 17 2021 10:50:48 GMT+0800 (Central Indonesia Time)",
-      "favorite": false,
+      "favorite": true,
       "id": 6
+    },
+    {
+      "title": "Apple ",
+      "body": "Apple ",
+      "mealType": "Snack",
+      "date": "Wed Nov 17 2021 14:15:56 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "id": 7
+    },
+    {
+      "title": "alsdkjfsad",
+      "body": "1 cup flour, 2 eggs",
+      "mealType": "Breakfast",
+      "date": "Wed Nov 17 2021 20:02:24 GMT+0800 (Central Indonesia Time)",
+      "favorite": true,
+      "id": 8
     }
   ],
   "profile": {

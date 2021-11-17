@@ -8,21 +8,7 @@ import useFetch from './useFetch';
 
 function ProgressPage() {
 
-      // Nutritionix request
-      /*
-      const nutritionix = require("nutritionix-api");
-        
-      const APP_ID   = '4f8d3652'; // Your APP ID
-      const API_KEY  = '65fc845830a41cc8dd76825821b4ac38'; // Your KEY
-      const SearchPhrase = '1 cup flour';
       
-      nutritionix.init(APP_ID,API_KEY);
-      
-      nutritionix.natural.search(SearchPhrase).then(result => {
-          console.log(result);
-          
-      });
-      */
 
       const [calories, setCalories] = useState();
       const [protein, setProtein] = useState();

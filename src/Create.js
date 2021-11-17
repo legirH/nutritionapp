@@ -9,6 +9,12 @@ const Create = () => {
     const [isPending, setisPending] = useState(false);
     const history = useHistory();
 
+    const [calories, setCalories] = useState();
+    const [protien, setProtien] = useState();
+    const [carbohydrates, setCarbohydrates] = useState();
+    const [fats, setFats] = useState();
+    const [calcium, setCalcium] = useState();
+
     const handelSubmit = (e) =>{
         e.preventDefault();
         const dateOne = new Date()
@@ -19,6 +25,22 @@ const Create = () => {
         const entry ={ title, body, mealType, date, favorite };
 
         setisPending(true);
+
+    // Nutritionix request
+      
+      const nutritionix = require("nutritionix-api");
+        
+      const APP_ID   = '4f8d3652'; // Your APP ID
+      const API_KEY  = '65fc845830a41cc8dd76825821b4ac38'; // Your KEY
+      const SearchPhrase = body;
+      
+      nutritionix.init(APP_ID,API_KEY);
+      
+      nutritionix.natural.search(SearchPhrase).then(result => {
+          console.log(result);
+          // pick out calorie amount and save into json database 
+      });
+      
 
         fetch('http://localhost:8000/entries', {
             method: 'POST',

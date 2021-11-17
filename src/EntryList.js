@@ -8,7 +8,7 @@ const EntryList = ({entries, title}) => { // can do (props and then declare each
               {entries.map((entry) => (
                 <div className="entry-preview" key = {entry.id}>
                     <Link to = {`/entries/${entry.id}`}>
-                        <h2>{ entry.title }</h2>
+                        <h2>{ entry.title } {entry.favorite == true ? '♥' : ''} </h2>
                         <p>{ entry.mealType }</p>
                         <p>{ entry.date.substring(0, 10) } </p>
                     </Link>

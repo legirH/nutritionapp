@@ -128,7 +128,7 @@ const ProfilePage = () => {
         return (  
             <div className="profile">
 
-            <h2> { name } </h2>
+            <h2> &#x2665; { name } &#x2665;  </h2>
             <form onSubmit = {handelSubmit}> 
                 <label>Name:</label>
                 <input 
