@@ -24,15 +24,15 @@
       "mealType": "Breakfast",
       "date": "Wed Nov 03 2021 11:18:06 GMT+0800 (Central Indonesia Time)",
       "sortDate": 1635909486131,
-      "favorite": true,
+      "favorite": false,
       "id": 5
     },
     {
-      "title": "sdfs",
-      "body": "sdfsdf",
-      "mealType": "Dinner",
-      "date": "Tue Nov 16 2021 16:15:02 GMT+0800 (Central Indonesia Time)",
-      "sortDate": 1637050502330,
+      "title": "sidjflkasjdf ",
+      "body": "sdfa sdf as",
+      "mealType": "Snack",
+      "date": "Wed Nov 17 2021 10:33:34 GMT+0800 (Central Indonesia Time)",
+      "sortDate": 1637116414583,
       "favorite": false,
       "id": 6
     }
