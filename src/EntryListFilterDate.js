@@ -4,7 +4,7 @@ const EntryListFilterDate = ({entries, title}) => { // can do (props and then de
     const dateOne = new Date();
     const text = dateOne.toString();
     var date = text.substring(0, 10);
-    console.log(text);
+  //  console.log(text);
     
     
 

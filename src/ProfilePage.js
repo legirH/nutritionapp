@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import useFetch from "./useFetch";
 
 
 const ProfilePage = () => {  

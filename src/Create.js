@@ -9,11 +9,6 @@ const Create = () => {
     const [isPending, setisPending] = useState(false);
     const history = useHistory();
 
-    const [calories, setCalories] = useState();
-    const [protien, setProtien] = useState();
-    const [carbohydrates, setCarbohydrates] = useState();
-    const [fats, setFats] = useState();
-    const [calcium, setCalcium] = useState();
 
     const handelSubmit = (e) =>{
         e.preventDefault();
@@ -22,40 +17,75 @@ const Create = () => {
 
         const favorite = new Boolean(false);
 
-        const entry ={ title, body, mealType, date, favorite };
-
         setisPending(true);
 
-    // Nutritionix request
-      
-      const nutritionix = require("nutritionix-api");
+        // Nutritionix request
+    
+        const nutritionix = require("nutritionix-api");
         
-      const APP_ID   = '4f8d3652'; // Your APP ID
-      const API_KEY  = '65fc845830a41cc8dd76825821b4ac38'; // Your KEY
-      const SearchPhrase = body;
+        const APP_ID   = '4f8d3652'; // Your APP ID
+        const API_KEY  = '65fc845830a41cc8dd76825821b4ac38'; // Your KEY
+        const SearchPhrase = body;
       
-      nutritionix.init(APP_ID,API_KEY);
+        nutritionix.init(APP_ID,API_KEY);
       
-      nutritionix.natural.search(SearchPhrase).then(result => {
-          console.log(result);
-          // pick out calorie amount and save into json database 
-      });
-      
+        nutritionix.natural.search(SearchPhrase).then(result => {
+        
+        console.log(result);
 
-        fetch('http://localhost:8000/entries', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(entry)
-        }).then(() => {
-            console.log('New entry added');
-            setisPending(false);
-            history.push('/');
+            var totalCal = 0;
+            var totalProtein = 0;
+            var totalCarbs = 0;
+            var totalFats = 0;
+            var totalCalcium = 0;
 
-        })
+            // loop to add all calories and micronutrient amounts when there are multiple food items
+            for (let i = 0; i < result.foods.length; i++){
+            
+                var calories = result.foods[i].nf_calories;
+                var protein = result.foods[i].nf_protein;
+                var carbohydrates = result.foods[i].nf_total_carbohydrate;
+                var fats = result.foods[i].nf_total_fat;
+                var calcium = result.foods[i].full_nutrients.find(x => x.attr_id === 301).value;
 
+                totalCal = totalCal + calories;
+                totalProtein = totalProtein + protein;
+                totalCarbs = totalCarbs + carbohydrates;
+                totalFats = totalFats + fats;
+                totalCalcium = totalCalcium + calcium;
+            
+             }
+
+             const entry ={ title, body, mealType, date, favorite, totalCal, totalProtein, totalCarbs, totalFats, totalCalcium };
+
+
+
+            console.log(totalCal);
+            console.log(totalProtein);
+            console.log(totalCarbs);
+            console.log(totalFats);
+            console.log(totalCalcium);
+
+            
+            /* not sure if this needs to be inside the natural nutrient search 
+            part or outside in the general handle submit */
+
+            console.log("Fetch was done")
+            
+            fetch('http://localhost:8000/entries', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(entry)
+            }).then(() => {
+                console.log('New entry added');
+                setisPending(false);
+                history.push('/'); 
+
+            })
+          
+        });
+    
     }
-
-     
 
     return ( 
         <div className="create">
@@ -86,14 +116,13 @@ const Create = () => {
                     <option value="Snack">Snack</option>
 
                 </select>
-
+                
                 {!isPending && <button>Add Entry</button>}
                 {isPending && <button disabled>Adding entry...</button>}
 
-          
-
-
+        
             </form>
+            
         </div>
      );
 }

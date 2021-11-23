@@ -7,38 +7,8 @@ const EntryDetails = () => {
     const { id } = useParams();
     const { data: entry, error, isPending} = useFetch('http://localhost:8000/entries/' + id);
     const history = useHistory();
-    const [favorite, setFavorite] = useState();
-
-/*
-    useEffect(() => {
-        const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
-
-        console.log('Use effect ran');
-        fetch('http://localhost:8000/entries/' + entry.id , { signal: abortConst.signal })
-            .then(res => {
-                if(!res.ok) {
-                    throw Error('could not fetch the data for that resourse');
-                }
 
 
-            return res.json()
-            })
-            .then((data) => {
-                setFavorite(data.favorite);
-                //setisPending(false);
-                //setError(null);
-            })
-            .catch(err => {
-                if (err.name === 'AbortError') {
-                    console.log('Fetch aborted')
-                } else {
-                    //setisPending(false);
-                    //setError(err.message);
-                } 
-            })
-            return () => abortConst.abort();
-    }, []);
-*/
     const handelClick= () => {
         fetch('http://localhost:8000/entries/' + entry.id, {
             method: 'DELETE'
@@ -51,7 +21,7 @@ const EntryDetails = () => {
     const handelClickFavoriteToggle= () => {
         if( entry.favorite == true){
             fetch('http://localhost:8000/entries/' + entry.id, {
-            //set favorite in entry to true put or patch
+            //Toggeling favorite tag to false
             method: 'PATCH',
             headers: { 'Content-Type':'application/json'},
             body: JSON.stringify({ favorite: false })
@@ -62,7 +32,7 @@ const EntryDetails = () => {
         }
         else {
             fetch('http://localhost:8000/entries/' + entry.id, {
-            //set favorite in entry to true put or patch
+            //Toggeling favorite tag to false
             method: 'PATCH',
             headers: { 'Content-Type':'application/json'},
             body: JSON.stringify({ favorite: true })

@@ -16,7 +16,6 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        
         <div className="content">
         <Switch>
           <Route exact path = "/">

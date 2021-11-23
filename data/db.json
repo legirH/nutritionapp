@@ -5,8 +5,7 @@
       "body": "1 banana, 1 cup of milk, 1 cup of whey protein powder, 1 tbsp of peanut butter. ",
       "mealType": "Snack",
       "date": "Wed Nov 03 2021 11:15:38 GMT+0800 (Central Indonesia Time)",
-      "sortDate": 1635909338420,
-      "favorite": false,
+      "favorite": true,
       "id": 3
     },
     {
@@ -14,8 +13,7 @@
       "body": "2 slices of whole wheat bread, 4 slices of salami, 2 slices of cheese, 3 leaves of lettuces, 1 tbsp of hummus",
       "mealType": "Lunch",
       "date": "Wed Nov 03 2021 11:16:44 GMT+0800 (Central Indonesia Time)",
-      "sortDate": 1635909404068,
-      "favorite": false,
+      "favorite": true,
       "id": 4
     },
     {
@@ -23,7 +21,6 @@
       "body": "2 cups of flour, 2 eggs, 2 cups of milk, 1 tsp of baking powder",
       "mealType": "Breakfast",
       "date": "Wed Nov 03 2021 11:18:06 GMT+0800 (Central Indonesia Time)",
-      "sortDate": 1635909486131,
       "favorite": false,
       "id": 5
     },
@@ -44,12 +41,46 @@
       "id": 7
     },
     {
-      "title": "alsdkjfsad",
-      "body": "1 cup flour, 2 eggs",
+      "title": "Toast and Eggs",
+      "body": "2 pieces of whole-wheat toast, 2 eggs",
       "mealType": "Breakfast",
-      "date": "Wed Nov 17 2021 20:02:24 GMT+0800 (Central Indonesia Time)",
-      "favorite": true,
-      "id": 8
+      "date": "Fri Nov 19 2021 10:24:41 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "id": 9
+    },
+    {
+      "title": "PP&J",
+      "body": "2 slices rye bread, 2 tsp of peanut butter, 2 tsp of strawberry jelly",
+      "mealType": "Lunch",
+      "date": "Tue Nov 23 2021 08:43:31 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "id": 10
+    },
+    {
+      "title": "banana bread",
+      "body": "2 cups flour, 1 egg, 1 tsp baking powder ",
+      "mealType": "Lunch",
+      "date": "Tue Nov 23 2021 14:16:38 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "caloriesEntryTotal": 0,
+      "protienEntryTotal": 0,
+      "carbohydratesEntryTotal": 0,
+      "fatsEntryTotal": 0,
+      "calciumEntryTotal": 0,
+      "id": 12
+    },
+    {
+      "title": "a baking thing",
+      "body": "1 cup flour, 2 eggs, 1 tsp of baking powder, 2 tbsp of sugar",
+      "mealType": "Snack",
+      "date": "Tue Nov 23 2021 21:30:13 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "totalCal": 697.58,
+      "totalProtein": 25.47,
+      "totalCarbs": 122.47,
+      "totalFats": 10.74,
+      "totalCalcium": 345.29699999999997,
+      "id": 13
     }
   ],
   "profile": {
