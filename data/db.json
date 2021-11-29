@@ -1,19 +1,16 @@
 {
   "entries": [
     {
-      "title": "Protein Shake",
-      "body": "1 banana, 1 cup of milk, 1 cup of whey protein powder, 1 tbsp of peanut butter. ",
-      "mealType": "Snack",
-      "date": "Wed Nov 03 2021 11:15:38 GMT+0800 (Central Indonesia Time)",
-      "favorite": true,
-      "id": 3
-    },
-    {
       "title": "Sandwitch",
       "body": "2 slices of whole wheat bread, 4 slices of salami, 2 slices of cheese, 3 leaves of lettuces, 1 tbsp of hummus",
       "mealType": "Lunch",
       "date": "Wed Nov 03 2021 11:16:44 GMT+0800 (Central Indonesia Time)",
       "favorite": true,
+      "caloriesEntryTotal": 0.001,
+      "protienEntryTotal": 0.001,
+      "carbohydratesEntryTotal": 0.001,
+      "fatsEntryTotal": 0.001,
+      "calciumEntryTotal": 0.001,
       "id": 4
     },
     {
@@ -22,6 +19,11 @@
       "mealType": "Breakfast",
       "date": "Wed Nov 03 2021 11:18:06 GMT+0800 (Central Indonesia Time)",
       "favorite": false,
+      "caloriesEntryTotal": 0.001,
+      "protienEntryTotal": 0.001,
+      "carbohydratesEntryTotal": 0.001,
+      "fatsEntryTotal": 0.001,
+      "calciumEntryTotal": 0.001,
       "id": 5
     },
     {
@@ -30,6 +32,11 @@
       "mealType": "Lunch",
       "date": "Wed Nov 17 2021 10:50:48 GMT+0800 (Central Indonesia Time)",
       "favorite": true,
+      "caloriesEntryTotal": 0.001,
+      "protienEntryTotal": 0.001,
+      "carbohydratesEntryTotal": 0.001,
+      "fatsEntryTotal": 0.001,
+      "calciumEntryTotal": 0.001,
       "id": 6
     },
     {
@@ -38,6 +45,11 @@
       "mealType": "Snack",
       "date": "Wed Nov 17 2021 14:15:56 GMT+0800 (Central Indonesia Time)",
       "favorite": false,
+      "caloriesEntryTotal": 0.001,
+      "protienEntryTotal": 0.001,
+      "carbohydratesEntryTotal": 0.001,
+      "fatsEntryTotal": 0.001,
+      "calciumEntryTotal": 0.001,
       "id": 7
     },
     {
@@ -46,6 +58,11 @@
       "mealType": "Breakfast",
       "date": "Fri Nov 19 2021 10:24:41 GMT+0800 (Central Indonesia Time)",
       "favorite": false,
+      "caloriesEntryTotal": 0.001,
+      "protienEntryTotal": 0.001,
+      "carbohydratesEntryTotal": 0.001,
+      "fatsEntryTotal": 0.001,
+      "calciumEntryTotal": 0.001,
       "id": 9
     },
     {
@@ -54,6 +71,11 @@
       "mealType": "Lunch",
       "date": "Tue Nov 23 2021 08:43:31 GMT+0800 (Central Indonesia Time)",
       "favorite": false,
+      "caloriesEntryTotal": 0.001,
+      "protienEntryTotal": 0.001,
+      "carbohydratesEntryTotal": 0.001,
+      "fatsEntryTotal": 0.001,
+      "calciumEntryTotal": 0.001,
       "id": 10
     },
     {
@@ -62,11 +84,11 @@
       "mealType": "Lunch",
       "date": "Tue Nov 23 2021 14:16:38 GMT+0800 (Central Indonesia Time)",
       "favorite": false,
-      "caloriesEntryTotal": 0,
-      "protienEntryTotal": 0,
-      "carbohydratesEntryTotal": 0,
-      "fatsEntryTotal": 0,
-      "calciumEntryTotal": 0,
+      "caloriesEntryTotal": 0.001,
+      "protienEntryTotal": 0.001,
+      "carbohydratesEntryTotal": 0.001,
+      "fatsEntryTotal": 0.001,
+      "calciumEntryTotal": 0.001,
       "id": 12
     },
     {
@@ -81,6 +103,45 @@
       "totalFats": 10.74,
       "totalCalcium": 345.29699999999997,
       "id": 13
+    },
+    {
+      "title": "Chicken noodle soup",
+      "body": "1 cup of chicken noodle soup",
+      "mealType": "Lunch",
+      "date": "Wed Nov 24 2021 10:54:13 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "totalCal": 59.52,
+      "totalProtein": 2.88,
+      "totalCarbs": 7.37,
+      "totalFats": 1.88,
+      "totalCalcium": 12.4,
+      "id": 14
+    },
+    {
+      "title": "Protein Shake 2",
+      "body": "1 banana, 1 scoop WHEY protein, 2 tsp peanut butter, 250ml of milk,",
+      "mealType": "Snack",
+      "date": "Wed Nov 24 2021 10:56:15 GMT+0800 (Central Indonesia Time)",
+      "favorite": true,
+      "totalCal": 409.53999999999996,
+      "totalProtein": 37.15,
+      "totalCarbs": 43.9,
+      "totalFats": 11.29,
+      "totalCalcium": 471.1559,
+      "id": 15
+    },
+    {
+      "title": "Sandwich ",
+      "body": "2 slices of whole wheat bread, half a tomato, 4 slices of salami, 1 tbsp cream cheese, 2 leaves of lettus ",
+      "mealType": "Lunch",
+      "date": "Mon Nov 29 2021 10:12:47 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "totalCal": 359.98,
+      "totalProtein": 17.23,
+      "totalCarbs": 30.709999999999997,
+      "totalFats": 18.740000000000002,
+      "totalCalcium": 130.824,
+      "id": 16
     }
   ],
   "profile": {

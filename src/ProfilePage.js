@@ -52,21 +52,6 @@ const ProfilePage = () => {
                 return () => abortConst.abort();
     
         }, []); // if nothing in the array [] then it will only run once, if you put eg name it will run only when name is changed, if no [] then will run evertime something is changed
-    
-
-
-/*         useFetch = () => {
-            const profile ={ name, calories, protein, carbohydrates, fats, calcium};
-            fetch('http://localhost:8000/profile',{
-                method: 'GET',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.parse(profile.name)
-            }).then(() => {
-                setName(profile.name);
-            })
-        } */
-
-
 
         const handelSubmit = (e) =>{
             e.preventDefault();
@@ -100,7 +85,9 @@ const ProfilePage = () => {
             })
     
         }
-
+        // get and add up all the entries miconutrients together for currentABC for the current day
+        //and save as a new json field, have to update each time new entry is added and day is changed
+        // update when new entry is created? but add up in profile page?
         var currentCalories = 400;
         var goalCalories = calories;
         var caloriePercent = Math.round((currentCalories / goalCalories) * 100);
@@ -129,42 +116,42 @@ const ProfilePage = () => {
 
             <h2> &#x2665; { name } &#x2665;  </h2>
             <form onSubmit = {handelSubmit}> 
-                <label>Name:</label>
+                <label>Name: </label>
                 <input 
                     type ="text"
                     required
                     value = {name}
                     onChange = {(e) => setName(e.target.value)}
                 />
-                 <label>Calories:</label>
+                 <label>Calories: kcal</label>
                 <input 
                     type ="text"
                     required
                     value = {calories}
                     onChange = {(e) => setCalories(e.target.value)}
                 />
-                <label>Protein:</label>
+                <label>Protein: g</label>
                 <input 
                     type ="text"
                     required
                     value = {protein}
                     onChange = {(e) => setProtein(e.target.value)}
                 />
-                <label>Carbohydrates:</label>
+                <label>Carbohydrates: g</label>
                 <input 
                     type ="text"
                     required
                     value = {carbohydrates}
                     onChange = {(e) => setCarbohydrates(e.target.value)}
                 />
-                <label>Fats:</label>
+                <label>Fats: g</label>
                 <input 
                     type ="text"
                     required
                     value = {fats}
                     onChange = {(e) => setFats(e.target.value)}
                 />
-                <label>Calcium:</label>
+                <label>Calcium: mg</label>
                 <input 
                     type ="text"
                     required
