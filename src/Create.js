@@ -6,6 +6,8 @@ const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [mealType, setMealType] = useState('Breakfast');
+    const [servingsConsumed, setServingsConsumed] = useState('1');
+    const [servings, setServings] = useState('1');
     const [isPending, setisPending] = useState(false);
     const history = useHistory();
 
@@ -56,7 +58,7 @@ const Create = () => {
             
              }
 
-             const entry ={ title, body, mealType, date, favorite, totalCal, totalProtein, totalCarbs, totalFats, totalCalcium };
+             const entry ={ title, body, mealType, servings, servingsConsumed, date, favorite, totalCal, totalProtein, totalCarbs, totalFats, totalCalcium };
 
 
 
@@ -104,6 +106,20 @@ const Create = () => {
                     value = {body}
                     onChange = {(e) => setBody(e.target.value)}
                 ></textarea>
+                <label>Servings:</label>
+                <input 
+                    type ="text"
+                    required
+                    value = {servings}
+                    onChange = {(e) => setServings(e.target.value)}
+                />
+                <label>Servings Consumed:</label>
+                <input 
+                    type ="text"
+                    required
+                    value = {servingsConsumed}
+                    onChange = {(e) => setServingsConsumed(e.target.value)}
+                />
                 <label> Meal Type:</label>
                 <select 
                     required

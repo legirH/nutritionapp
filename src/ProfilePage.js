@@ -85,6 +85,9 @@ const ProfilePage = () => {
             })
     
         }
+        // adding up todays enties 
+        
+
         // get and add up all the entries miconutrients together for currentABC for the current day
         //and save as a new json field, have to update each time new entry is added and day is changed
         // update when new entry is created? but add up in profile page?

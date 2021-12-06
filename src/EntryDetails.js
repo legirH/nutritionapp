@@ -65,7 +65,9 @@ const EntryDetails = () => {
 
                     <h2>{entry.title}   {entry.favorite == true ? '♥' : ''}  </h2>
                     <h4> {entry.date.substring(0, 10)} </h4>
-                    <p>{entry.mealType}</p>
+                    <p>{entry.mealType}  </p>
+                    <p> Servings: {entry.servings}  </p> 
+                    <p> Servings Consumed: {entry.servingsConsumed}</p>
                     <div>{entry.body}</div>
 
                     <button onClick={handelClick}>delete</button>
@@ -76,11 +78,11 @@ const EntryDetails = () => {
                     <div className="micronutrients">
                         <h3> Micronutrient Amounts </h3>
 
-                        <h4> Calories: {Math.round(entry.totalCal * 100) / 100} kcal </h4>
-                        <h4> Protein: {Math.round(entry.totalProtein * 100) / 100} g </h4>
-                        <h4> Carbohydrates: {Math.round(entry.totalCarbs * 100) / 100} g </h4>
-                        <h4> Fats: {Math.round(entry.totalFats * 100) / 100} g </h4>
-                        <h4> Calcium: {Math.round(entry.totalCalcium * 100) / 100} mg </h4>
+                        <h4> Calories: {Math.round(entry.totalCal * 100 * (entry.servingsConsumed / entry.servings)) / 100} kcal </h4>
+                        <h4> Protein: {Math.round(entry.totalProtein * 100 * (entry.servingsConsumed / entry.servings)) / 100} g </h4>
+                        <h4> Carbohydrates: {Math.round(entry.totalCarbs * 100 * (entry.servingsConsumed / entry.servings)) / 100} g </h4>
+                        <h4> Fats: {Math.round(entry.totalFats * 100 * (entry.servingsConsumed / entry.servings)) / 100} g </h4>
+                        <h4> Calcium: {Math.round(entry.totalCalcium * 100 * (entry.servingsConsumed / entry.servings)) / 100} mg </h4>
                     </div>
 
                 </article>

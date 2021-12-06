@@ -71,6 +71,9 @@
 .entry-details div {
   margin: 20px 0;
 }
+.entry-details p {
+  margin-bottom: 10px;
+}
 .entry-details button {
   background: #f1356d;
   color: #fff;
