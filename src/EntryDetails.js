@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 const EntryDetails = () => {
     const { id } = useParams();
     const { data: entry, error, isPending } = useFetch('http://localhost:8000/entries/' + id);
+    
     const history = useHistory();
 
 
@@ -43,17 +44,6 @@ const EntryDetails = () => {
         }
     }
 
-
-    const handelClickAddAsNewEntry = () => {
-        fetch('http://localhost:8000/entries/' + entry.id, {
-            method: 'DELETE'
-        }).then(() => {
-            history.push('/');
-        })
-    }
-    // heart --> &#x2665;
-
-
     return (
         <div className="entry-details">
             {isPending && <div>Loading...</div>}
@@ -72,7 +62,6 @@ const EntryDetails = () => {
 
                     <button onClick={handelClick}>delete</button>
                     <button onClick={handelClickFavoriteToggle}>Toggle Favorite</button>
-                    <button onClick={handelClickAddAsNewEntry}>Add As New Entry</button>
 
                     </div>
                     <div className="micronutrients">

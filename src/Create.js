@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useHistory } from "react-router";
+import { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router";
 
-const Create = () => {
+const Create = () => {    
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
@@ -11,11 +11,63 @@ const Create = () => {
     const [isPending, setisPending] = useState(false);
     const history = useHistory();
 
+    const [todaysTotalCalories, setTodaysTotalCalories] = useState(0);
+    const [todaysTotalProtein, setTodaysTotalProtein] = useState(0);
+    const [todaysTotalCarbohydrates, setTodaysTotalCarbohydrates] = useState(0);
+    const [todaysTotalFats, setTodaysTotalFats] = useState(0);
+    const [todaysTotalCalcium, setTodaysTotalCalcium] = useState(0);
+
+    const dateOne = new Date()
+    let date = dateOne.toString().substring(0, 10);
+
+    const idPart1 = date.replace(" ", "-");
+    let id = idPart1.replace(" ", "-");
+
+    useEffect(() => {
+        const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
+
+        console.log('Use effect ran for todaysTotals');
+        fetch('http://localhost:8000/todaysTotals/' + id, { signal: abortConst.signal })
+            .then(res => {
+                if(!res.ok) {
+                    console.log('error in useEffect')
+                    throw Error('could not fetch the data for that resourse');
+
+                }
+
+            return res.json()
+            })
+            .then((data) => {
+                setTodaysTotalCalories(data.todaysTotalCalories);
+                setTodaysTotalProtein(data.todaysTotalProtein);
+                setTodaysTotalCarbohydrates(data.todaysTotalCarbohydrates);
+                setTodaysTotalFats(data.todaysTotalFats);
+                setTodaysTotalCalcium(data.todaysTotalCalcium);
+                console.log('from db calories '+ data.todaysTotalCalories);
+                console.log('from db protein ' + data.todaysTotalProtein);
+                console.log('data is '+data)
+        
+                //setisPending(false);
+                //setError(null);
+            })
+            .catch(err => {
+                if (err.name === 'AbortError') {
+                    console.log('Fetch aborted')
+                } else {
+                    //setisPending(false);
+                    //setError(err.message);
+                }
+                
+            })
+            return () => abortConst.abort();
+
+    }, []); // if nothing in the array [] then it will only run once, if you put eg name it will run only when name is changed, if no [] then will run evertime something is changed
+
 
     const handelSubmit = (e) =>{
         e.preventDefault();
-        const dateOne = new Date()
-        let date = dateOne.toString();
+        
+        console.log(date);
 
         const favorite = new Boolean(false);
 
@@ -33,7 +85,7 @@ const Create = () => {
       
         nutritionix.natural.search(SearchPhrase).then(result => {
         
-        console.log(result);
+            console.log(result);
 
             var totalCal = 0;
             var totalProtein = 0;
@@ -41,9 +93,9 @@ const Create = () => {
             var totalFats = 0;
             var totalCalcium = 0;
 
-            // loop to add all calories and micronutrient amounts when there are multiple food items
+                // loop to add all calories and micronutrient amounts when there are multiple food items
             for (let i = 0; i < result.foods.length; i++){
-            
+                
                 var calories = result.foods[i].nf_calories;
                 var protein = result.foods[i].nf_protein;
                 var carbohydrates = result.foods[i].nf_total_carbohydrate;
@@ -55,31 +107,49 @@ const Create = () => {
                 totalCarbs = totalCarbs + carbohydrates;
                 totalFats = totalFats + fats;
                 totalCalcium = totalCalcium + calcium;
-            
-             }
+                
+            }
 
-             const entry ={ title, body, mealType, servings, servingsConsumed, date, favorite, totalCal, totalProtein, totalCarbs, totalFats, totalCalcium };
+            const entry ={ title, body, mealType, servings, servingsConsumed, date, favorite, totalCal, totalProtein, totalCarbs, totalFats, totalCalcium };
 
+            totalCal = todaysTotalCalories + totalCal;
+            totalProtein = todaysTotalProtein + totalProtein;
+            totalCarbs = todaysTotalCarbohydrates + totalCarbs;
+            totalFats = todaysTotalFats + totalFats;
+            totalCalcium = todaysTotalCalcium + totalCalcium;
 
+            const todaysTotal = {date, todaysTotalCalories: totalCal, todaysTotalProtein: totalProtein, todaysTotalCarbohydrates: totalCarbs, todaysTotalFats: totalFats, todaysTotalCalcium: totalCalcium, id}
 
-            console.log(totalCal);
-            console.log(totalProtein);
-            console.log(totalCarbs);
-            console.log(totalFats);
-            console.log(totalCalcium);
-
-            
-            /* not sure if this needs to be inside the natural nutrient search 
-            part or outside in the general handle submit */
-
+            // testing data
+            console.log('total Calories' + totalCal);
+            console.log('total Protein' + totalProtein);
+            console.log('total Carbohydrates' + totalCarbs);
+            console.log('total Fats' + totalFats);
+            console.log('total Calcium' + totalCalcium);
+    
             console.log("Fetch was done")
-            
+                
             fetch('http://localhost:8000/entries', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(entry)
+            })
+            // .then(() => {
+            //     console.log('New entry added');
+            //     setisPending(false);
+            //     history.push('/'); 
+
+            // })
+
+            // if its the first enyry of the day or if all the totals = 0 then create a new
+            // total entry, if not fetch the total for the current day and add entry details to
+            // the new total
+            fetch('http://localhost:8000/todaysTotals/' + id, {
+                method: 'PUT',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(todaysTotal)
             }).then(() => {
-                console.log('New entry added');
+                console.log('New total added');
                 setisPending(false);
                 history.push('/'); 
 

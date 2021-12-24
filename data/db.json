@@ -194,6 +194,51 @@
       "totalFats": 713.24,
       "totalCalcium": 359.52,
       "id": 18
+    },
+    {
+      "title": "apple pie",
+      "body": "2.25 lbs Granny Smith Apples, 1.5 tsp cinnamon, 8 Tbsp unsalted butter, 3 Tbsp  all-purpose flour, 1/4 cup water, 1 cup granulated sugar, 1 egg\n\n",
+      "mealType": "Dinner",
+      "servings": "8",
+      "servingsConsumed": "2",
+      "date": "Mon Dec 13 2021 11:15:00 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "totalCal": 2346.89,
+      "totalProtein": 14.32,
+      "totalCarbs": 360.32000000000005,
+      "totalFats": 99.12,
+      "totalCalcium": 152.66219999999998,
+      "id": 19
+    },
+    {
+      "title": "asdf",
+      "body": "apple ",
+      "mealType": "Breakfast",
+      "servings": "1",
+      "servingsConsumed": "1",
+      "date": "Mon Dec 13 2021 11:27:21 GMT+0800 (Central Indonesia Time)",
+      "favorite": false,
+      "totalCal": 94.64,
+      "totalProtein": 0.47,
+      "totalCarbs": 25.13,
+      "totalFats": 0.31,
+      "totalCalcium": 10.92,
+      "id": 20
+    },
+    {
+      "title": "asdfad",
+      "body": "apple ",
+      "mealType": "Breakfast",
+      "servings": "1",
+      "servingsConsumed": "1",
+      "date": "Fri Dec 24",
+      "favorite": false,
+      "totalCal": 94.64,
+      "totalProtein": 0.47,
+      "totalCarbs": 25.13,
+      "totalFats": 0.31,
+      "totalCalcium": 10.92,
+      "id": 21
     }
   ],
   "profile": {
@@ -204,6 +249,17 @@
     "fats": "40",
     "calcium": "2500"
   },
+  "todaysTotals": [
+    {
+      "date": "Thu Dec 23",
+      "todaysTotalCalories": 800.66,
+      "todaysTotalProtein": 68.53,
+      "todaysTotalCarbohydrates": 221.76,
+      "todaysTotalFats": 57.68,
+      "todaysTotalCalcium": 459.72,
+      "id": "Thu-Dec-23"
+    }
+  ],
   "totals": {
     "globalPercent": 49,
     "caloriePercent": 20,
