@@ -11,6 +11,9 @@ const EntryDetails = () => {
 
 
     const handelClick = () => {
+
+        //Add subtraction from the dailyTotal
+        
         fetch('http://localhost:8000/entries/' + entry.id, {
             method: 'DELETE'
         }).then(() => {

@@ -118,6 +118,12 @@ const Create = () => {
             totalFats = todaysTotalFats + totalFats;
             totalCalcium = todaysTotalCalcium + totalCalcium;
 
+            totalCal = Math.round(totalCal * 100 * (servingsConsumed/servings)) / 100;
+            totalProtein = Math.round(totalProtein * 100 * (servingsConsumed/servings)) / 100;
+            totalCarbs = Math.round(totalCarbs * 100 * (servingsConsumed/servings)) / 100;
+            totalFats = Math.round(totalFats * 100 * (servingsConsumed/servings)) / 100;
+            totalCalcium = Math.round(totalCalcium * 100 * (servingsConsumed/servings)) / 100;
+
             const todaysTotal = {date, todaysTotalCalories: totalCal, todaysTotalProtein: totalProtein, todaysTotalCarbohydrates: totalCarbs, todaysTotalFats: totalFats, todaysTotalCalcium: totalCalcium, id}
 
             // testing data
@@ -141,20 +147,32 @@ const Create = () => {
 
             // })
 
-            // if its the first enyry of the day or if all the totals = 0 then create a new
-            // total entry, if not fetch the total for the current day and add entry details to
-            // the new total
-            fetch('http://localhost:8000/todaysTotals/' + id, {
-                method: 'PUT',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(todaysTotal)
-            }).then(() => {
-                console.log('New total added');
-                setisPending(false);
-                history.push('/'); 
+            fetch('http://localhost:8000/todaysTotals/' + id)
+            .then(res => {
+                if(!res.ok) {
 
-            })
-          
+                    //add new blank 
+                    fetch('http://localhost:8000/todaysTotals', {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(todaysTotal)
+                    })
+
+                    console.log("add new field thing");
+                }
+
+                fetch('http://localhost:8000/todaysTotals/' + id, {
+                    method: 'PUT',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(todaysTotal)
+                }).then(() => {
+                    console.log('New total added');
+                    setisPending(false);
+                    history.push('/'); 
+
+                })
+            
+            });
         });
     
     }
