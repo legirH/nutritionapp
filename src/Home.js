@@ -11,7 +11,8 @@ const Home = () => {
 
     const [ globalPercent, setGlobalPercent ] = useState();
 
-
+// do calculation for Global Percent call down profile and todaysTotal + dateid 
+// copy finished product in the progressPage
     useEffect(() => {
         const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
 

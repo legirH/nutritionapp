@@ -110,7 +110,15 @@ const Create = () => {
                 
             }
 
+            
             const entry ={ title, body, mealType, servings, servingsConsumed, date, favorite, totalCal, totalProtein, totalCarbs, totalFats, totalCalcium };
+           
+            totalCal = Math.round(totalCal * 100 * (Number(servingsConsumed)/Number(servings))) / 100;
+            totalProtein = Math.round(totalProtein * 100 * (Number(servingsConsumed)/Number(servings))) / 100;
+            totalCarbs = Math.round(totalCarbs * 100 * (Number(servingsConsumed)/Number(servings))) / 100;
+            totalFats = Math.round(totalFats * 100 * (Number(servingsConsumed)/Number(servings))) / 100;
+            totalCalcium = Math.round(totalCalcium * 100 * (Number(servingsConsumed)/Number(servings))) / 100;
+
 
             totalCal = todaysTotalCalories + totalCal;
             totalProtein = todaysTotalProtein + totalProtein;
@@ -118,12 +126,8 @@ const Create = () => {
             totalFats = todaysTotalFats + totalFats;
             totalCalcium = todaysTotalCalcium + totalCalcium;
 
-            totalCal = Math.round(totalCal * 100 * (servingsConsumed/servings)) / 100;
-            totalProtein = Math.round(totalProtein * 100 * (servingsConsumed/servings)) / 100;
-            totalCarbs = Math.round(totalCarbs * 100 * (servingsConsumed/servings)) / 100;
-            totalFats = Math.round(totalFats * 100 * (servingsConsumed/servings)) / 100;
-            totalCalcium = Math.round(totalCalcium * 100 * (servingsConsumed/servings)) / 100;
 
+          
             const todaysTotal = {date, todaysTotalCalories: totalCal, todaysTotalProtein: totalProtein, todaysTotalCarbohydrates: totalCarbs, todaysTotalFats: totalFats, todaysTotalCalcium: totalCalcium, id}
 
             // testing data
@@ -140,13 +144,8 @@ const Create = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(entry)
             })
-            // .then(() => {
-            //     console.log('New entry added');
-            //     setisPending(false);
-            //     history.push('/'); 
-
-            // })
-
+           
+            // check to see if this is the first entry of the day
             fetch('http://localhost:8000/todaysTotals/' + id)
             .then(res => {
                 if(!res.ok) {
@@ -159,6 +158,10 @@ const Create = () => {
                     })
 
                     console.log("add new field thing");
+                }
+                else{
+                    console.log('error in useEffect')
+
                 }
 
                 fetch('http://localhost:8000/todaysTotals/' + id, {

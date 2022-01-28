@@ -4,8 +4,6 @@ import { useHistory } from "react-router";
 
 const ProfilePage = () => {  
 
-
-
         const [name, setName] = useState('');
         const [calories, setCalories] = useState('0');
         const [protein, setProtein] = useState('0');
@@ -14,8 +12,6 @@ const ProfilePage = () => {
         const [calcium, setCalcium] = useState('0');
         const [isPending, setisPending] = useState(false);
         const history = useHistory();
-
-        //const { data: profile, isPending: pending , error } = useFetch('http://localhost:8000/profile')
 
         useEffect(() => {
             const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
@@ -88,9 +84,6 @@ const ProfilePage = () => {
         // adding up todays enties 
         
 
-        // get and add up all the entries miconutrients together for currentABC for the current day
-        //and save as a new json field, have to update each time new entry is added and day is changed
-        // update when new entry is created? but add up in profile page?
         var currentCalories = 400;
         var goalCalories = calories;
         var caloriePercent = Math.round((currentCalories / goalCalories) * 100);

@@ -1,24 +1,78 @@
 import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
-import { useState, useEffect } from "react";
-
 
 const EntryDetails = () => {
     const { id } = useParams();
     const { data: entry, error, isPending } = useFetch('http://localhost:8000/entries/' + id);
+
+    const dateOne = new Date()
+    let date = dateOne.toString().substring(0, 10);
+
+    const idPart1 = date.replace(" ", "-");
+    let dateid = idPart1.replace(" ", "-");
     
     const history = useHistory();
-
 
     const handelClick = () => {
 
         //Add subtraction from the dailyTotal
-        
-        fetch('http://localhost:8000/entries/' + entry.id, {
-            method: 'DELETE'
-        }).then(() => {
-            history.push('/');
-        })
+        //1. fetch todays todaysTotal
+        //2. take values and subtract current entry amounts amounts
+
+        fetch('http://localhost:8000/todaysTotals/' + dateid)
+            .then(res => {
+                if(!res.ok) {
+                    throw Error('could not fetch the data for that resourse');
+                }
+            return res.json()
+            })
+            .then((data) => {
+                 const todaysTotal = {date, 
+                    todaysTotalCalories: Math.round( 100 * (data.todaysTotalCalories - (entry.totalCal * (entry.servingsConsumed/entry.servings)))) / 100, 
+                    todaysTotalProtein: Math.round( 100 * (data.todaysTotalProtein - (entry.totalProtein * (entry.servingsConsumed/entry.servings)))) / 100, 
+                    todaysTotalCarbohydrates: Math.round( 100 * (data.todaysTotalCarbohydrates - (entry.totalCarbs * (entry.servingsConsumed/entry.servings)))) / 100, 
+                    todaysTotalFats: Math.round( 100 * (data.todaysTotalFats - (entry.totalFats * (entry.servingsConsumed/entry.servings)))) / 100, 
+                    todaysTotalCalcium: Math.round( 100 * (data.todaysTotalCalcium - (entry.totalCalcium * (entry.servingsConsumed/entry.servings)))) / 100, 
+                    id: dateid};
+
+                    console.log(todaysTotal);
+
+
+                
+                console.log('Total Calories for the day: ' + data.todaysTotalCalories );
+                console.log('Total Protein for the day: ' + data.todaysTotalProtein);
+                console.log('Total Carbs for the day: ' + data.todaysTotalCarbohydrates);
+                console.log('Total Fats for the day: ' + data.todaysTotalFats);
+                console.log('Total Calcium for the day: ' + data.todaysTotalCalcium);
+
+                console.log('Calories: db value minus entry value: ' + Math.round( 100 * (data.todaysTotalCalories - (entry.totalCal * (entry.servingsConsumed/entry.servings)))) / 100);
+                console.log('Protein: db value minus entry value: ' + Math.round( 100 * (data.todaysTotalProtein - (entry.totalProtein * (entry.servingsConsumed/entry.servings)))) / 100);
+                console.log('Carbohydrates: db value minus entry value: ' + Math.round( 100 * (data.todaysTotalCarbohydrates - (entry.totalCarbs * (entry.servingsConsumed/entry.servings)))) / 100);
+                console.log('Fats: db value minus entry value: ' + Math.round( 100 * (data.todaysTotalFats - (entry.totalFats * (entry.servingsConsumed/entry.servings)))) / 100);
+                console.log('Calcium: db value minus entry value: ' + Math.round( 100 * (data.todaysTotalCalcium - (entry.totalCalcium * (entry.servingsConsumed/entry.servings)))) / 100);
+
+                console.log(entry.totalCal);
+                console.log(entry.totalProtein);
+                console.log(entry.totalCarbs);
+                console.log(entry.totalFats);
+                console.log(entry.totalCalcium);
+                //3. update todays todaysTotal
+            //should update the useEffect above to run
+
+            fetch('http://localhost:8000/todaysTotals/' + dateid, {
+                method: 'PUT',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(todaysTotal)
+            })  
+        });
+            
+
+            fetch('http://localhost:8000/entries/' + entry.id, {
+                method: 'DELETE'
+            }).then(() => {
+                history.push('/');
+            })
+
     }
 
 

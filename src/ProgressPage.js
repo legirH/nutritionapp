@@ -8,6 +8,11 @@ import useFetch from './useFetch';
 
 function ProgressPage() {
 
+    const dateOne = new Date()
+    let date = dateOne.toString().substring(0, 10);
+
+    const idPart1 = date.replace(" ", "-");
+    let dateid = idPart1.replace(" ", "-");
       
 
       const [calories, setCalories] = useState();
@@ -67,6 +72,14 @@ function ProgressPage() {
       useEffect(() => {
         const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
 
+        // fetch  fetch('http://localhost:8000/todaysTotals/' + dateid) 
+        // fetch profile values
+        // do calculation 
+        // 1. possible do fetch profile values first then do calculation 
+        // of percent inside setGlobalPercent
+        // 2. Get rid of global percent completely fetch both data from profile and 
+        // todays totals seperatly and then do calculation as in the profile page
+        
         console.log('Use effect ran');
         fetch('http://localhost:8000/totals', { signal: abortConst.signal })
             .then(res => {

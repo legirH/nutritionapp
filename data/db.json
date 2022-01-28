@@ -254,66 +254,6 @@
       "totalFats": 0.31,
       "totalCalcium": 10.92,
       "id": 22
-    },
-    {
-      "title": "asdfads",
-      "body": "apple ",
-      "mealType": "Breakfast",
-      "servings": "1",
-      "servingsConsumed": "1",
-      "date": "Mon Jan 10",
-      "favorite": false,
-      "totalCal": 94.64,
-      "totalProtein": 0.47,
-      "totalCarbs": 25.13,
-      "totalFats": 0.31,
-      "totalCalcium": 10.92,
-      "id": 23
-    },
-    {
-      "title": "slfjdaf",
-      "body": "apple ",
-      "mealType": "Breakfast",
-      "servings": "1",
-      "servingsConsumed": "1",
-      "date": "Mon Jan 10",
-      "favorite": false,
-      "totalCal": 94.64,
-      "totalProtein": 0.47,
-      "totalCarbs": 25.13,
-      "totalFats": 0.31,
-      "totalCalcium": 10.92,
-      "id": 24
-    },
-    {
-      "title": "apple",
-      "body": "apple ",
-      "mealType": "Breakfast",
-      "servings": "2",
-      "servingsConsumed": "1",
-      "date": "Wed Jan 12",
-      "favorite": false,
-      "totalCal": 94.64,
-      "totalProtein": 0.47,
-      "totalCarbs": 25.13,
-      "totalFats": 0.31,
-      "totalCalcium": 10.92,
-      "id": 25
-    },
-    {
-      "title": "dsaf",
-      "body": "apple",
-      "mealType": "Breakfast",
-      "servings": "1",
-      "servingsConsumed": "1",
-      "date": "Wed Jan 12",
-      "favorite": false,
-      "totalCal": 94.64,
-      "totalProtein": 0.47,
-      "totalCarbs": 25.13,
-      "totalFats": 0.31,
-      "totalCalcium": 10.92,
-      "id": 26
     }
   ],
   "profile": {
@@ -342,6 +282,33 @@
       "todaysTotalFats": 0.31,
       "todaysTotalCalcium": 10.92,
       "id": "Wed-Jan-12"
+    },
+    {
+      "date": "Thu Jan 13",
+      "todaysTotalCalories": 199.66,
+      "todaysTotalProtein": 1.76,
+      "todaysTotalCarbohydrates": 52.08,
+      "todaysTotalFats": 0.7,
+      "todaysTotalCalcium": 16.82,
+      "id": "Thu-Jan-13"
+    },
+    {
+      "date": "Tue Jan 25",
+      "todaysTotalCalories": 581.1600000000001,
+      "todaysTotalProtein": 8.19,
+      "todaysTotalCarbohydrates": 132.18,
+      "todaysTotalFats": 8.129999999999999,
+      "todaysTotalCalcium": 194.11,
+      "id": "Tue-Jan-25"
+    },
+    {
+      "date": "Fri Jan 28",
+      "todaysTotalCalories": 0,
+      "todaysTotalProtein": 0,
+      "todaysTotalCarbohydrates": 0,
+      "todaysTotalFats": 0,
+      "todaysTotalCalcium": 0,
+      "id": "Fri-Jan-28"
     }
   ],
   "totals": {
