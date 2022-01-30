@@ -7,7 +7,7 @@ import useFetch from './useFetch';
 
 
 function ProgressPage() {
-
+//
     const dateOne = new Date()
     let date = dateOne.toString().substring(0, 10);
 
@@ -21,67 +21,17 @@ function ProgressPage() {
       const [fats, setFats] = useState();
       const [calcium, setCalcium] = useState();
 
-      const [globalPercent, setGlobalPercent ] = useState();
-      const [caloriePercent, setCaloriePercent ] = useState();
-      const [proteinPercent, setProteinPercent ] = useState();
-      const [carbohydratePercent, setCarbohydratePercent ] = useState();
-      const [fatsPercent, setFatsPercent ] = useState();
-      const [calciumPercent, setCalciumPercent ] = useState();
-
-
-
-
-      //const { data: profile, isPending: pending , error } = useFetch('http://localhost:8000/profile')
-
-      useEffect(() => {
-          const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
-  
-          console.log('Use effect ran');
-          fetch('http://localhost:8000/profile', { signal: abortConst.signal })
-              .then(res => {
-                  if(!res.ok) {
-                      throw Error('could not fetch the data for that resourse');
-                  }
-  
-  
-              return res.json()
-              })
-              .then((data) => {
-                  setCalories(data.calories);
-                  setProtein(data.protein);
-                  setCarbohydrates(data.carbohydrates);
-                  setFats(data.fats);
-                  setCalcium(data.calcium);
-                  //setisPending(false);
-                  //setError(null);
-              })
-              .catch(err => {
-                  if (err.name === 'AbortError') {
-                      console.log('Fetch aborted')
-                  } else {
-                      //setisPending(false);
-                      //setError(err.message);
-                  }
-                  
-              })
-              return () => abortConst.abort();
-
-      }, []); 
-
+      const [todaysTotalCalories, setTodaysTotalCalories ] = useState();
+      const [todaysTotalProtein, setTodaysTotalProtein ] = useState();
+      const [todaysTotalCarbohydrates, setTodaysTotalCarbohydrates ] = useState();
+      const [todaysTotalFats, setTodaysTotalFats ] = useState();
+      const [todaysTotalCalcium, setTodaysTotalCalcium ] = useState();
 
       useEffect(() => {
         const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
 
-        // fetch  fetch('http://localhost:8000/todaysTotals/' + dateid) 
-        // fetch profile values
-        // do calculation 
-        // 1. possible do fetch profile values first then do calculation 
-        // of percent inside setGlobalPercent
-        // 2. Get rid of global percent completely fetch both data from profile and 
-        // todays totals seperatly and then do calculation as in the profile page
-        
         console.log('Use effect ran');
-        fetch('http://localhost:8000/totals', { signal: abortConst.signal })
+        fetch('http://localhost:8000/profile', { signal: abortConst.signal })
             .then(res => {
                 if(!res.ok) {
                     throw Error('could not fetch the data for that resourse');
@@ -91,12 +41,11 @@ function ProgressPage() {
             return res.json()
             })
             .then((data) => {
-                setGlobalPercent(data.globalPercent);
-                setCaloriePercent(data.caloriePercent);
-                setProteinPercent(data.proteinPercent);
-                setCarbohydratePercent(data.carbohydratePercent);
-                setFatsPercent(data.fatsPercent);
-                setCalciumPercent(data.calciumPercent);
+                setCalories(data.calories);
+                setProtein(data.protein);
+                setCarbohydrates(data.carbohydrates);
+                setFats(data.fats);
+                setCalcium(data.calcium);
                 //setisPending(false);
                 //setError(null);
             })
@@ -110,8 +59,64 @@ function ProgressPage() {
                 
             })
             return () => abortConst.abort();
+
+    }, []);
+      
+      useEffect(() => {
+        const abortConst = new AbortController(); // assosiating abort with fetch so it can be stoped
+        
+        console.log('Use effect ran');
+        fetch('http://localhost:8000/todaysTotals/' + dateid, { signal: abortConst.signal })
+            .then(res => {
+                if(!res.ok) {
+                    throw Error('could not fetch the data for that resourse');
+                }
+
+
+            return res.json()
+            })
+            .then((data) => {
+                setTodaysTotalCalories(data.todaysTotalCalories);
+                setTodaysTotalProtein(data.todaysTotalProtein);
+                setTodaysTotalCarbohydrates(data.todaysTotalCarbohydrates);
+                setTodaysTotalFats(data.todaysTotalFats);
+                setTodaysTotalCalcium(data.todaysTotalCalcium);
+
+            })
+            .catch(err => {
+                if (err.name === 'AbortError') {
+                    console.log('Fetch aborted')
+                } else {
+                    //setisPending(false);
+                    //setError(err.message);
+                }
+                
+            })
+            return () => abortConst.abort();
             
     }, []); 
+
+    var currentCalories = todaysTotalCalories;
+    var goalCalories = calories;
+    var caloriePercent = Math.round((currentCalories / goalCalories) * 100);
+
+    var currentProtein = todaysTotalProtein;
+    var goalProtein = protein;
+    var proteinPercent = Math.round((currentProtein / goalProtein ) * 100);
+
+    var currentCarbohydrates = todaysTotalCarbohydrates;
+    var goalCarbohydrates = carbohydrates;
+    var carbohydratePercent = Math.round((currentCarbohydrates / goalCarbohydrates ) * 100);
+
+    var currentFats = todaysTotalFats;
+    var goalFats = fats;
+    var fatsPercent = Math.round((currentFats / goalFats ) * 100);
+
+    var currentCalcium = todaysTotalCalcium;
+    var goalCalcium = calcium;
+    var calciumPercent = Math.round(( currentCalcium / goalCalcium ) * 100);
+
+    var globalPercent = Math.round((caloriePercent + proteinPercent + carbohydratePercent + fatsPercent + calciumPercent) / 5) ;
 
 
       const testData = [

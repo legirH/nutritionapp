@@ -309,6 +309,15 @@
       "todaysTotalFats": 0,
       "todaysTotalCalcium": 0,
       "id": "Fri-Jan-28"
+    },
+    {
+      "date": "Sun Jan 30",
+      "todaysTotalCalories": 0,
+      "todaysTotalProtein": 0,
+      "todaysTotalCarbohydrates": 0,
+      "todaysTotalFats": 0,
+      "todaysTotalCalcium": 0,
+      "id": "Sun-Jan-30"
     }
   ],
   "totals": {
