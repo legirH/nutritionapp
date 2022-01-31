@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+// mapping all entries 
 const EntryList = ({entries, title}) => { // can do (props and then declare each one or only the ones you need)
 
     return ( 

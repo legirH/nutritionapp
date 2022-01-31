@@ -6,7 +6,7 @@ const EntryListFilterDate = ({entries, title}) => { // can do (props and then de
     var date = text.substring(0, 10);
   //  console.log(text);
     
-    
+// mapping all entries of the current date
 
     return ( 
         <div className="entry-listfilterdate">

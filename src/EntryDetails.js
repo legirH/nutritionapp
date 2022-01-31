@@ -100,6 +100,12 @@ const EntryDetails = () => {
             })
         }
     }
+// When deleteing past entries, their amount gets subtracted from the current days total 
+// 1. only show delete button on entries that are of the current date
+// 2. do it semi properly, if deleting a past entry (entry that doesnt have the current date)
+//    dont subtract from the total
+// 3. do it properly, everyting in option 2 but subtract the amount its total in the json db
+
 
     return (
         <div className="entry-details">

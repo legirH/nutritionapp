@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+// maping all entries that are Favorite 
 const EntryListFilter = ({entries, title}) => { // can do (props and then declare each one or only the ones you need)
 
     return ( 
